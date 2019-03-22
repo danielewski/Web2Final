@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Single User Page</h1>
+    </div>
+    <hr size="5">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{singleController.user._id}}</td>
+        <td>{{singleController.user.name.firstName}}</td>
+        <td>{{singleController.user.name.lastName}}</td>
+        <td>{{singleController.user.username}}</td>
+        <td>{{singleController.user.email}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

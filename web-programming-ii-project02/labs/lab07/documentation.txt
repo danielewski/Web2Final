@@ -1,0 +1,8 @@
+MogoDB Documentation:
+https://docs.mongodb.com/manual/
+https://docs.mongodb.com/
+
+MogoDB Regular Expressions:
+https://www.tutorialspoint.com/mongodb/mongodb_regular_expression.htm
+https://docs.mongodb.com/manual/reference/operator/query/regex/
+

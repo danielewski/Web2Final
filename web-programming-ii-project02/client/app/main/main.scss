@@ -1,0 +1,126 @@
+//The main.scss file is going to be the file that controls the scss for the entire application
+//We want to make class changes (.) for all the components/elements that are going to be the same on each page
+//and want to make id changes (#) for anything that is going to be unique
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #9f9e9e;
+  z-index: 0;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  letter-spacing: 1.5px;
+  padding: 30px 30px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #94d6dd;
+  color: white;
+}
+
+
+#banner {
+  border-bottom: none;
+  margin-top: -20px;
+}
+
+#banner h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
+}
+
+.navbar-text {
+  margin-left: 15px;
+}
+
+html {
+  background-color: #DDDDDD;
+}
+
+div {
+  background-color: #DDDDDD;
+}
+th, thead, tbody, td{
+  border: 3px solid white;
+}
+
+.blue{
+  color: #94d6dd;
+  font-size: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+}
+.blue2{
+  color: #94d6dd;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+.specialButton {
+  background-color: #DDDDDD;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.specialButton:hover {
+  background-color: white;
+  color: #DDDDDD;
+}
+
+.specialText{
+  font-size: 20px;
+}
+
+.indent{
+  text-indent: 50px;
+}
+
+.indentLeft {
+  margin-left: 50px;
+}
+
+.red{
+  color: red;
+}
+
+p{
+  line-height: revert;
+}

@@ -1,0 +1,63 @@
+Project 01 Documentation
+
+Schema
+
+Users schemas:
+
+fullNameSchema:
+firstName: Of type String. String allows for the first name of the user to be made up of characters. This is a required field as every user must have a first name.
+lastName: Of type String. String allows for last name of the user to be made up of characters. This is a required field as every user must have a last name.
+
+userSchema:
+fullName: The fullName field takes in the fullNameSchema so that the userSchema can access the users full name.
+username: Of type String. String allows for the username to be made up of characters and numbers. This field is required as every user must have a username. This field is also unique, as no two users may have the same username.
+username: Of type String. String allows for the email to be made up of characters and numbers, as most email addresses are. This field is required as every user must have an email address. This field is also unique, as no two users may have the same email address.
+
+Recipes schemas:
+ingredientsSchema:
+ingredients: Array of type String. String allows for the user to input the name of each ingredient. Array allows for the person creating a recipe to add multiple different ingredients to a recipe. This is a required field because every recipe needs at least one ingredient.
+
+recipeSchema:
+recipeName: Of type String, so that the user can input a word, or multiple words, for the name of a recipe. This is a required field because every recipe needs a name so the user knows what recipe it is.
+recipeDescription: Of type String, so that the user can input a sentence or paragraph to describe the recipe. This is a required field because every recipe needs a description.
+pictureUrl: Of type string, so the user can submit a web link to an image of the recipe. This is required so the user can see what the recipe looks like.
+prepTime: Of type Number, as the preparation time represents the amount of time in minutes that it takes to prepare the ingredients for the recipe. This is a required field so that the user knows how long the recipe takes to prepare.
+cookTime: Of type Number, as the cook time represents the amount of time in minutes that it takes to cook the recipe. This is a required field so that the user knows how long the recipe takes to cook.
+directions: Array of type string. String so that the user can input the steps for the recipe, and an array because most recipes have multiple steps. This is a required field because you need directions to cook a recipe.
+ingredients: The ingredients field takes in the ingredientsSchema so that the recipeSchema can access the ingredients.
+userReview: Of type ObjectId. This field references the review model and allows for reviews of the recipe to be accessed by the recipe. This is not a required field, as recipes do not need reviews.
+
+Reviews schemas:
+reviewSchema:
+description: Of type String, so that the user can input a sentence or paragraph for the review. This is a required field as a review needs a description.
+rating: Of type number, as the rating is a numerical value representing the amount of stars that a recipe receives. This is required because a review must have a rating.
+date: Of type Date. This is set automatically by the server when a review is created. The date is required as each review needs to be associated with a date.
+userCreating: Of type ObjectId. This references the User model to connect a user to the review, as each review needs to be created by a user.
+
+API:
+/api/users
+Get: No input required. Returns all the users and their attributes. Additionally will return code 500 if there is a server side error, 400 with incorrect syntax, and 200 if successfully completed.
+Post: Requires input of JSON object containing firstName, lastName, username, and email. Returns the user after successful creation. Additionally, will return code 201 if the user was created and saved successfully, 400 if an error was encountered and the user was not saved successfully, and 500 if there is a server side error.
+
+/api/users/:id
+Get: Returns the user and its attributes, additionally will return error 500 if there is a server side error, 404 if the there is no user with the given id, 400 if called with incorrect syntax, and 200 if a user is found with the given id.
+Put: Requires input of json object containing firstName, lastName, username, and email. Returns the user after successful update and save. Additionally, will return code 200 if the user was updated and saved successfully, 404 if there is no user with the given id, 400 if an error was encountered and the user was not saved successfully, and 500 if there is a server side error.
+Delete: Deletes user and returns 204 if the user was successfully deleted, 404 if there is no user with the given id, 400 if the deletion fails, and 500 if there is a server side error.
+
+/api/recipes
+Get: No input required. Returns all the recipes and their attributes. Additionally will return code 500 if there is a server side error, 400 with incorrect syntax, and 200 if successfully completed.
+Post: Requires input of json object containing recipeName, recipeDescription, pictureURL, prepTime, cookingTime, directions, and ingredients. Returns the recipe after successful creation. Additionally, will return code 201 if the recipe was created and saved successfully, 400 if an error was encountered and the recipe was not saved successfully, and 500 if there is a server side error.
+
+/api/recipes/:recipe_id
+Get: Returns the recipe and its attributes, additionally will return error 500 if there is a server side error, 404 if the there is no recipe with the given id, 400 if called with incorrect syntax, and 200 if a recipe is found with the given id.
+Put: Requires input of json object containing recipeName, recipeDescription, pictureURL, prepTime, cookingTime, directions, and ingredients. Returns the updated recipe if successful. Additionally, will return code 200 if the recipe was updated and saved successfully, 404 if there is no recipe with the given id, 400 if an error was encountered and the recipe was not saved successfully, and 500 if there is a server side error.
+Delete: Deletes recipe and returns 204 if the recipe was successfully deleted, 404 if there is no recipe with the given id, 400 if the deletion fails, and 500 if there is a server side error.
+
+/api/recipes/:recipe_id/reviews
+Get: No input required. Returns all the reviews for the given recipe and their attributes. Additionally will return code 500 if there is a server side error, 404 if a recipe with the given recipe_id does not exist, 400 with incorrect syntax, and 200 if successfully completed.
+Post: Requires input of json object containing description, rating, and userCreating. Returns the review after successful creation. Additionally, will return code 500 if there is a server side error, code 201 if the review was created and saved successfully, 404 if the recipe with the given recipe_id does not exist, and 400 if an error was encountered and the review was not saved successfully.
+
+/api/recipes/:recipe_id/reviews/:review_id
+Get: Returns the review and its attributes, additionally will return error 500 if there is a server side error, 404 if there is no recipe with the given recipe_id, 404 if the there is no review with the given review_id, 400 if called with incorrect syntax, and 200 if a review is found with the given id.
+Put: Requires input of json object containing description, rating, and userCreating. Returns the updated review if successful. Additionally, will return code 500 if there is a server side error, 200 if the review was updated and saved successfully, 404 if there is no recipe with the given recipe_id, 404 if the there is no review with the given review_id, and 400 if an error was encountered and the review was not saved successfully.
+Delete: Deletes review and returns 204 if the review was successfully deleted, 404 if there is no recipe with the given recipe_id, 404 if the there is no review with the given review_id, 400 if the deletion fails, and 500 if there is a server side error.
